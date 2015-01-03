@@ -1,0 +1,32 @@
+html, body {
+	background-color: black;
+	opacity: ;
+}
+.gameboard {
+	text-align: center;
+}
+
+h1 {
+	font-family: 'Armata', sans-serif;
+    color: #3498db;
+}
+
+.square {
+	background-color: #bdc3c7;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 3px solid #3498db;
+}
+
+.square:hover {
+    background-color: #ecf0f1;
+}
+
+button {
+    background-color: #3498db;
+    padding: 10px;
+    color: white;
+    margin-left: 10px;
+}
