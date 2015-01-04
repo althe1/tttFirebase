@@ -1,6 +1,19 @@
 html, body {
-	background-color: black;
+    font-family: 'helvetica', sans-serif;
+	background-color: #7f8c8d;
+    color: black;
+}
+
+i {
     color: white;
+    text-shadow: -5px 5px 3px #000;
+    display: inline-block;
+    width: 100%;
+}
+
+.fa-circle-o {
+    font-weight: 900 !important;
+    margin-top: 10px;
 }
 
 .gameboard {
@@ -8,11 +21,24 @@ html, body {
     margin: 0 auto;
 }
 
-h1 {
-	font-family: 'helvetica', sans-serif;
-    color: #3498db;
+.scoreboard {
+    position: relative;
+    margin: 0 auto 10px auto;
+    border: solid 5px #ecf0f1;
+    background-color: #95a5a6;
+    padding: 0;
+    text-align: center;
+    width: 300px;
 }
 
+h1 {
+    color: #ecf0f1;
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+}
 .square {
 	width: 100px;
     height: 100px;
@@ -28,10 +54,34 @@ h1 {
     background-color: gray;
 }
 
+.xpiece {
+    font-size: 20px;
+    width: inherit;
+    height: inherit;
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
+    color: white;
+    position: absolute;
+    background-color: #3498db;
+
+}
+
+.opiece {
+    font-size: 20px;
+    width: inherit;
+    height: inherit;
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
+    color: white;
+    position: absolute;
+    background-color: #e74c3c;
+}
+
 button {
     background-color: #2ecc71;
     padding: 15px;
-    color: black;
     border: 0;
     font-size: 20px;
     font-weight: bold;
@@ -41,3 +91,58 @@ button {
     margin-top: 15px;
 }
 
+button:hover {
+    background-color: #27ae60;
+}
+
+button:active {
+    outline: none;
+    border: none;
+}
+
+button .newgame {
+    margin-top: 10px;
+}
+
+.replayScreen:target, .replayScreen:target + .gameOverDisplay{
+    display:block;
+    opacity:2;
+}
+
+.gameOverDisplay {
+    position:fixed; 
+    top:0; 
+    left:0; 
+    background:rgba(0,0,0,0.6); 
+    z-index:5; 
+    width:100%; 
+    height:100%; 
+} 
+
+.replayScreen {
+    top: 150px;
+    height:160px;
+    width:650px;
+    margin:0 auto;
+    position:relative; 
+    z-index:10; 
+    background: white; 
+    border:5px solid #cccccc; 
+    border-radius:10px; 
+}
+
+.replayScreen p {
+    text-align: center;
+    margin: 20px auto 0 auto;
+    font-size: 28px; 
+} 
+
+.replayScreen button {
+    margin: 20px;
+    text-align: center;
+    width: 200px;
+}
+
+.hidden {
+    display: none;
+}

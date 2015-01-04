@@ -6,35 +6,87 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.0.6/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="js/main.js"></script>
     <script src="js/TController.js"></script>
  </head>
     <body>
     <div ng-controller="TController as vm">
-    	<div class="gameboard">
-    		<h1>Tic Tac Toe<h1> 
+        <div class="scoreboard">
+            <h1>Tic Tac Toe<h1> 
             <h2>You are player: {{ vm.player }}</h2>
+        </div>
+    	<div class="gameboard">
+    		
     		<div>
     			<div>
-    				<div class="square" ng-click="vm.click(0)">{{vm.game.board[0]}}</div>
-    		 		<div class="square" ng-click="vm.click(1)">{{vm.game.board[1]}}</div>
-    				<div class="square" ng-click="vm.click(2)">{{vm.game.board[2]}}</div>
+    				<div class="square" ng-click="vm.click(0)">
+                        <div class="xpiece" ng-show="vm.game.board[0] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[0] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+                    </div>
+    		 		<div class="square" ng-click="vm.click(1)">
+                        <div class="xpiece" ng-show="vm.game.board[1] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[1] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+                    </div>
+    				<div class="square" ng-click="vm.click(2)">
+                        <div class="xpiece" ng-show="vm.game.board[2] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[2] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+                    </div>
     			</div> 
     			<div> 
-    				<div class="square" ng-click="vm.click(3)">{{vm.game.board[3]}}</div>
-    				<div class="square" ng-click="vm.click(4)">{{vm.game.board[4]}}</div>
-    				<div class="square" ng-click="vm.click(5)">{{vm.game.board[5]}}</div>
+    				<div class="square" ng-click="vm.click(3)">
+                        <div class="xpiece" ng-show="vm.game.board[3] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[3] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+                    </div>
+    				<div class="square" ng-click="vm.click(4)">
+                        <div class="xpiece" ng-show="vm.game.board[4] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[4] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+                    </div>
+    				<div class="square" ng-click="vm.click(5)">
+                        <div class="xpiece" ng-show="vm.game.board[5] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[5] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+                    </div>
     			</div> 
     			<div> 
-    				<div class="square" ng-click="vm.click(6)">{{vm.game.board[6]}}</div>
-    				<div class="square" ng-click="vm.click(7)">{{vm.game.board[7]}}</div>
-    				<div class="square" ng-click="vm.click(8)">{{vm.game.board[8]}}</div>
+    				<div class="square" ng-click="vm.click(6)">
+                        <div class="xpiece" ng-show="vm.game.board[6] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[6] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+                    </div>
+    				<div class="square" ng-click="vm.click(7)">
+                        <div class="xpiece" ng-show="vm.game.board[7] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[7] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+                    </div>
+    				<div class="square" ng-click="vm.click(8)">
+                        <div class="xpiece" ng-show="vm.game.board[8] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[8] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+                    </div>
     			</div>
     		</div>
-            <p ng-show="game.winner == 'X'">Player 1 wins!</p>
-            <p ng-show="game.winner == 'O'">Player 2 wins!</p>
-            <p ng-show="game.winner == 'tie'">It's a tie!</p>
+
+            <p ng-show="vm.game.winner == 'X'">Player 1 wins!</p>
+            <p ng-show="vm.game.winner == 'O'">Player 2 wins!</p>
+            <p ng-show="vm.game.winner == 'tie'">It's a tie!</p>
+
+
+        <div ng-class="{gameOverDisplay: vm.winningName != '', hidden: vm.game.winner == false}">
+            <div ng-class="{replayScreen: vm.winningName != '', hidden: vm.game.winner == false}">
+                <p>
+                    <span ng-show="vm.game.winner == 'X'">Congratulations Player 1 - You Won!</span>
+                    <span ng-show="vm.game.winner == 'O'">Congratulations Player 2 - You Won!</span>
+                </p>
+                <button ng-click="vm.newGame()" ng-hide="gameOverDisplay">Play Again</button>
+            </div>
+        </div>
+
+        <div class="gameOverDisplay" ng-show="vm.game.winner == 'tie'">
+            <div class="replayScreen" ng-show="vm.game.winner == 'tie'">
+                <p ng-show="vm.game.winner == 'tie'">Cats Game - You Tie!</p>
+                <button ng-click="vm.newGame()" ng-hide="gameOverDisplay">Play Again!</button>
+            </div>
+        </div>
+
+
     	</div>
 
 

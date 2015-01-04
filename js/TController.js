@@ -50,7 +50,7 @@ function TController($firebase) {
 	};
 
 
-	vm.resetGame = function() {
+	vm.newGame = function() {
 		ttt.board = ['','','','','','','','',''];
 		ttt.playerTurn = 1;
 		ttt.winner = false;
@@ -61,29 +61,43 @@ function TController($firebase) {
 		if(ttt.board[0] !== '' && ttt.board[1] !== '' && ttt.board[2] !== '' &&
 			ttt.board[3] !== '' && ttt.board[4] !== '' && ttt.board[5] !== '' &&
 			ttt.board[6] !== '' && ttt.board[7] !== '' && ttt.board[8] !== '' &&
-			ttt.board[0] == ttt.board[1] && ttt.board[1] == ttt.board[2] ||
-			ttt.board[3] == ttt.board[4] && ttt.board[4] == ttt.board[5] ||
-			ttt.board[6] == ttt.board[7] && ttt.board[7] == ttt.board[8] ||
-			ttt.board[0] == ttt.board[3] && ttt.board[3] == ttt.board[6] ||
-			ttt.board[1] == ttt.board[4] && ttt.board[4] == ttt.board[7] ||
-			ttt.board[2] == ttt.board[5] && ttt.board[5] == ttt.board[8] ||
-			ttt.board[0] == ttt.board[4] && ttt.board[4] == ttt.board[8] ||
-			ttt.board[2] == ttt.board[4] && ttt.board[4] == ttt.board[6]) {
-			if(ttt.playerTurn === 1) {
-				return "X";
-			}
-			else if (ttt.playerTurn === 2) {
-				return "O";
-			}
+			"X" == ttt.board[0] && ttt.board[0] == ttt.board[1] && ttt.board[1] == ttt.board[2] ||
+			"X" == ttt.board[3] && ttt.board[3] == ttt.board[4] && ttt.board[4] == ttt.board[5] ||
+			"X" == ttt.board[6] && ttt.board[6] == ttt.board[7] && ttt.board[7] == ttt.board[8] ||
+			"X" == ttt.board[0] && ttt.board[0] == ttt.board[3] && ttt.board[3] == ttt.board[6] ||
+			"X" == ttt.board[1] && ttt.board[1] == ttt.board[4] && ttt.board[4] == ttt.board[7] ||
+			"X" == ttt.board[2] && ttt.board[2] == ttt.board[5] && ttt.board[5] == ttt.board[8] ||
+			"X" == ttt.board[0] && ttt.board[0] == ttt.board[4] && ttt.board[4] == ttt.board[8] ||
+			"X" == ttt.board[2] && ttt.board[2] == ttt.board[4] && ttt.board[4] == ttt.board[6]) {
+			return "X";
 		}
 
-		for(var j = 0; j < 9; j++) {
-			if(ttt.board[j] === ''){
-				return false;
-			}
+		else if(ttt.board[0] !== '' && ttt.board[1] !== '' && ttt.board[2] !== '' &&
+			ttt.board[3] !== '' && ttt.board[4] !== '' && ttt.board[5] !== '' &&
+			ttt.board[6] !== '' && ttt.board[7] !== '' && ttt.board[8] !== '' &&
+			"O" == ttt.board[0] && ttt.board[0] == ttt.board[1] && ttt.board[1] == ttt.board[2] ||
+			"O" == ttt.board[3] && ttt.board[3] == ttt.board[4] && ttt.board[4] == ttt.board[5] ||
+			"O" == ttt.board[6] && ttt.board[6] == ttt.board[7] && ttt.board[7] == ttt.board[8] ||
+			"O" == ttt.board[0] && ttt.board[0] == ttt.board[3] && ttt.board[3] == ttt.board[6] ||
+			"O" == ttt.board[1] && ttt.board[1] == ttt.board[4] && ttt.board[4] == ttt.board[7] ||
+			"O" == ttt.board[2] && ttt.board[2] == ttt.board[5] && ttt.board[5] == ttt.board[8] ||
+			"O" == ttt.board[0] && ttt.board[0] == ttt.board[4] && ttt.board[4] == ttt.board[8] ||
+			"O" == ttt.board[2] && ttt.board[2] == ttt.board[4] && ttt.board[4] == ttt.board[6]) {
+			return "O";
 		}
 
-		return 'tie';
+
+		else if(ttt.board[0] !== '' && ttt.board[1] !== '' && ttt.board[2] !== '' &&
+			ttt.board[3] !== '' && ttt.board[4] !== '' && ttt.board[5] !== '' &&
+			ttt.board[6] !== '' && ttt.board[7] !== '' && ttt.board[8] !== '')
+		{
+			return 'tie';
+		}
+
+		else {
+			return false;
+		}
+
 	}
 
 
