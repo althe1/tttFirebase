@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html ng-app='tttApp'>
-<link href='http://fonts.googleapis.com/css?family=Armata' rel='stylesheet' type='text/css'>
  <head>
  	<meta charset="utf-8">
  	<title>Tic Tac Toe</title>
@@ -13,27 +12,29 @@
  </head>
     <body>
     <div ng-controller="TController as vm">
-    	<div id="gameboard" style="text-align:center;">
-    		<button>Play!</button>
-            <button ng-click="vm.board.reset()">Restart!</button>
-    		<h1>Tic Tac Toe<h1>  
-    		<div class ="board">
+    	<div class="gameboard">
+    		<h1>Tic Tac Toe<h1> 
+            <h2>You are player: {{ vm.player }}</h2>
+    		<div>
     			<div>
-    				<div class="square" ng-click="vm.click(0)">{{vm.board[0]}}</div>
-    		 		<div class="square" ng-click="vm.click(1)">{{vm.board[1]}}</div>
-    				<div class="square" ng-click="vm.click(2)">{{vm.board[2]}}</div>
+    				<div class="square" ng-click="vm.click(0)">{{vm.game.board[0]}}</div>
+    		 		<div class="square" ng-click="vm.click(1)">{{vm.game.board[1]}}</div>
+    				<div class="square" ng-click="vm.click(2)">{{vm.game.board[2]}}</div>
     			</div> 
     			<div> 
-    				<div class="square" ng-click="vm.click(3)">{{vm.board[3]}}</div>
-    				<div class="square" ng-click="vm.click(4)">{{vm.board[4]}}</div>
-    				<div class="square" ng-click="vm.click(5)">{{vm.board[5]}}</div>
+    				<div class="square" ng-click="vm.click(3)">{{vm.game.board[3]}}</div>
+    				<div class="square" ng-click="vm.click(4)">{{vm.game.board[4]}}</div>
+    				<div class="square" ng-click="vm.click(5)">{{vm.game.board[5]}}</div>
     			</div> 
     			<div> 
-    				<div class="square" ng-click="vm.click(6)">{{vm.board[6]}}</div>
-    				<div class="square" ng-click="vm.click(7)">{{vm.board[7]}}</div>
-    				<div class="square" ng-click="vm.click(8)">{{vm.board[8]}}</div>
+    				<div class="square" ng-click="vm.click(6)">{{vm.game.board[6]}}</div>
+    				<div class="square" ng-click="vm.click(7)">{{vm.game.board[7]}}</div>
+    				<div class="square" ng-click="vm.click(8)">{{vm.game.board[8]}}</div>
     			</div>
     		</div>
+            <p ng-show="game.winner == 'X'">Player 1 wins!</p>
+            <p ng-show="game.winner == 'O'">Player 2 wins!</p>
+            <p ng-show="game.winner == 'tie'">It's a tie!</p>
     	</div>
 
 

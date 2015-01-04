@@ -17,6 +17,7 @@ function TController($firebase) {
 	var ttt = vm.game;
 
 	vm.player = '';
+
 	ttt.$loaded().then(function() {
 		if(ttt.needPlayerTwo) {
 			vm.player = 2;
@@ -27,11 +28,10 @@ function TController($firebase) {
 			ttt.needPlayerTwo = true;
 			ttt.board = ['','','','','','','','',''];
 			ttt.playerTurn = 1;
-			ttt.winner = false;
+			ttt.winner = false;			
 		}
 		ttt.$save();
 	});
-
 
 	vm.click = function(i) {
 		if(ttt.winner) {
@@ -45,10 +45,10 @@ function TController($firebase) {
 			ttt.board[i] = 'O';
 			ttt.playerTurn = 1;
 		}
-		console.log(ttt.board[i]);
 		ttt.winner = checkGame();
 		ttt.$save();
 	};
+
 
 	vm.resetGame = function() {
 		ttt.board = ['','','','','','','','',''];
@@ -69,11 +69,16 @@ function TController($firebase) {
 			ttt.board[2] == ttt.board[5] && ttt.board[5] == ttt.board[8] ||
 			ttt.board[0] == ttt.board[4] && ttt.board[4] == ttt.board[8] ||
 			ttt.board[2] == ttt.board[4] && ttt.board[4] == ttt.board[6]) {
-			return ttt.board[i];
+			if(ttt.playerTurn === 1) {
+				return "X";
+			}
+			else if (ttt.playerTurn === 2) {
+				return "O";
+			}
 		}
 
-		for(var i = 0; i < 9; i++) {
-			if(ttt.board[i] === ''){
+		for(var j = 0; j < 9; j++) {
+			if(ttt.board[j] === ''){
 				return false;
 			}
 		}

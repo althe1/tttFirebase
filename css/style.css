@@ -1,32 +1,43 @@
 html, body {
 	background-color: black;
-	opacity: ;
+    color: white;
 }
+
 .gameboard {
 	text-align: center;
+    margin: 0 auto;
 }
 
 h1 {
-	font-family: 'Armata', sans-serif;
+	font-family: 'helvetica', sans-serif;
     color: #3498db;
 }
 
 .square {
-	background-color: #bdc3c7;
-    box-sizing: border-box;
-    display: inline-block;
-    width: 100px;
+	width: 100px;
     height: 100px;
-    border: 3px solid #3498db;
+    background-color: #95a5a6;
+    display: inline-block;
+    border: solid 5px #ecf0f1;
+    position: relative;
+    margin: 5px;
+    vertical-align: middle;
 }
 
 .square:hover {
-    background-color: #ecf0f1;
+    background-color: gray;
 }
 
 button {
-    background-color: #3498db;
-    padding: 10px;
+    background-color: #2ecc71;
+    padding: 15px;
+    color: black;
+    border: 0;
+    font-size: 20px;
+    font-weight: bold;
     color: white;
-    margin-left: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 15px;
 }
+
