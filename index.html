@@ -64,27 +64,25 @@
     			</div>
     		</div>
 
-        <div ng-class="gameOverDisplay" ng-show="vm.game.winner !=''">
-            <div ng-class="replayScreen" ng-show="vm.game.winner !=''">
-                <p>
-                    <span ng-show="vm.game.winner == 'X'">Congratulations Player 1 - You Won!</span>
-                    <span ng-show="vm.game.winner == 'O'">Congratulations Player 2 - You Won!</span>
-                </p>
-                <button ng-show="vm.game.winner !=''" ng-click="vm.newGame()" ng-hide="gameOverDisplay">Play Again</button>
+            <div class="gameOverDisplay" ng-show="vm.game.winner !=''">
+                <div class="replayScreen" ng-show="vm.game.winner !=''">
+                    <p>
+                        <span ng-show="vm.game.winner == 'X'">Congratulations Player 1 - You Won!</span>
+                        <span ng-show="vm.game.winner == 'O'">Congratulations Player 2 - You Won!</span>
+                    </p>
+                    <button ng-click="vm.newGame()" ng-hide="gameOverDisplay">Play Again</button>
+                </div>
             </div>
-        </div>
 
-        <div ng-class="gameOverDisplay" ng-show="vm.game.winner == 'tie'">
-            <div ng-class="replayScreen" ng-show="vm.game.winner == 'tie'">
-                <p ng-show="vm.game.winner == 'tie'">Cats Game - You Tie!</p>
-                <button ng-show="vm.game.winner == 'tie'" ng-click="vm.newGame()" ng-hide="gameOverDisplay">Play Again!</button>
+            <div class="gameOverDisplay" ng-show="vm.game.winner == 'tie'">
+                <div class="replayScreen" ng-show="vm.game.winner == 'tie'">
+                    <p ng-show="vm.game.winner == 'tie'">Cats Game - You Tie!</p>
+                    <button ng-click="vm.newGame()" ng-hide="gameOverDisplay">Play Again!</button>
+                </div>
             </div>
+
         </div>
-
-
-    	</div>
-
-
     </div>
+
   </body>
 </html>
