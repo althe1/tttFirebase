@@ -15,6 +15,7 @@ function TController($firebase) {
 	vm.game = getFirebaseGame();
 	var ttt = vm.game;
 
+	ttt.winner = '';
 	vm.player = '';
 
 	ttt.$loaded().then(playerSwitch);
@@ -27,23 +28,23 @@ function TController($firebase) {
 		else {
 			vm.player = 1;
 			ttt.needPlayerTwo = true;
-			ttt.board = ['','','','','','','','',''];
+			ttt.board = [['','',''],['','',''],['','','']];
 			ttt.playerTurn = 1;
 			ttt.winner = false;			
 		}
 		ttt.$save();
-	};
+	}
  	
-	vm.click = function(i) {
+	vm.click = function(r,c) {
 		if(ttt.winner) {
 			return;
 		}
-		if(ttt.board[i] === '' && vm.player === 1 && ttt.playerTurn === 1) {
-			ttt.board[i] = 'X';
+		if(ttt.board[r][c] === '' && vm.player === 1 && ttt.playerTurn === 1) {
+			ttt.board[r][c] = 'X';
 			ttt.playerTurn = 2;
 		}
-		else if(ttt.board[i] === '' && vm.player === 2 && ttt.playerTurn === 2) {
-			ttt.board[i] = 'O';
+		else if(ttt.board[r][c] === '' && vm.player === 2 && ttt.playerTurn === 2) {
+			ttt.board[r][c] = 'O';
 			ttt.playerTurn = 1;
 		}
 		ttt.winner = checkGame();
@@ -52,55 +53,43 @@ function TController($firebase) {
 
 
 	vm.newGame = function() {
-		ttt.board = ['','','','','','','','',''];
+		ttt.board = [['','',''],['','',''],['','','']];
 		ttt.playerTurn = 1;
 		ttt.winner = false;
 		ttt.$save();
 	};
 
 	function checkGame() {
-		if(ttt.board[0] !== '' && ttt.board[1] !== '' && ttt.board[2] !== '' &&
-			ttt.board[3] !== '' && ttt.board[4] !== '' && ttt.board[5] !== '' &&
-			ttt.board[6] !== '' && ttt.board[7] !== '' && ttt.board[8] !== '' &&
-			"X" == ttt.board[0] && ttt.board[0] == ttt.board[1] && ttt.board[1] == ttt.board[2] ||
-			"X" == ttt.board[3] && ttt.board[3] == ttt.board[4] && ttt.board[4] == ttt.board[5] ||
-			"X" == ttt.board[6] && ttt.board[6] == ttt.board[7] && ttt.board[7] == ttt.board[8] ||
-			"X" == ttt.board[0] && ttt.board[0] == ttt.board[3] && ttt.board[3] == ttt.board[6] ||
-			"X" == ttt.board[1] && ttt.board[1] == ttt.board[4] && ttt.board[4] == ttt.board[7] ||
-			"X" == ttt.board[2] && ttt.board[2] == ttt.board[5] && ttt.board[5] == ttt.board[8] ||
-			"X" == ttt.board[0] && ttt.board[0] == ttt.board[4] && ttt.board[4] == ttt.board[8] ||
-			"X" == ttt.board[2] && ttt.board[2] == ttt.board[4] && ttt.board[4] == ttt.board[6]) {
-			return "X";
+		for(var i = 0; i < 3; i++) {
+			if(ttt.board[i][0] !== '' && ttt.board[i][0] == ttt.board[i][1] && ttt.board[i][1] == ttt.board[i][2]) {
+				return ttt.board[i][0];
+			}
 		}
 
-		else if(ttt.board[0] !== '' && ttt.board[1] !== '' && ttt.board[2] !== '' &&
-			ttt.board[3] !== '' && ttt.board[4] !== '' && ttt.board[5] !== '' &&
-			ttt.board[6] !== '' && ttt.board[7] !== '' && ttt.board[8] !== '' &&
-			"O" == ttt.board[0] && ttt.board[0] == ttt.board[1] && ttt.board[1] == ttt.board[2] ||
-			"O" == ttt.board[3] && ttt.board[3] == ttt.board[4] && ttt.board[4] == ttt.board[5] ||
-			"O" == ttt.board[6] && ttt.board[6] == ttt.board[7] && ttt.board[7] == ttt.board[8] ||
-			"O" == ttt.board[0] && ttt.board[0] == ttt.board[3] && ttt.board[3] == ttt.board[6] ||
-			"O" == ttt.board[1] && ttt.board[1] == ttt.board[4] && ttt.board[4] == ttt.board[7] ||
-			"O" == ttt.board[2] && ttt.board[2] == ttt.board[5] && ttt.board[5] == ttt.board[8] ||
-			"O" == ttt.board[0] && ttt.board[0] == ttt.board[4] && ttt.board[4] == ttt.board[8] ||
-			"O" == ttt.board[2] && ttt.board[2] == ttt.board[4] && ttt.board[4] == ttt.board[6]) {
-			return "O";
+		for(var j = 0; j < 3; j++) {
+			if(ttt.board[0][j] !== '' && ttt.board[0][j] == ttt.board[1][j] && ttt.board[1][j] == ttt.board[2][j]) {
+				return ttt.board[0][j];
+			}
 		}
 
-
-		else if(ttt.board[0] !== '' && ttt.board[1] !== '' && ttt.board[2] !== '' &&
-			ttt.board[3] !== '' && ttt.board[4] !== '' && ttt.board[5] !== '' &&
-			ttt.board[6] !== '' && ttt.board[7] !== '' && ttt.board[8] !== '')
-		{
-			return 'tie';
+		if(ttt.board[0][0] !== '' && ttt.board[0][0] == ttt.board[1][1]  && ttt.board[1][1] == ttt.board[2][2]) {
+			return ttt.board[0][0];
 		}
 
-		else {
-			return false;
+		if(ttt.board[0][2] !== '' && ttt.board[0][2] == ttt.board[1][1] && ttt.board[1][1] == ttt.board[2][0]) {
+			return ttt.board[0][2];
 		}
+
+		for(i = 0; i < 3; i++) {
+			for(j = 0; j < 3; j++) {
+				if(ttt.board[i][j] === '') {
+					return false;
+				}
+			}
+		}
+
+		return 'tie';
 
 	}
-
-
 
 }

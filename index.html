@@ -21,45 +21,45 @@
     		
     		<div>
     			<div>
-    				<div class="square" ng-click="vm.click(0)">
-                        <div class="xpiece" ng-show="vm.game.board[0] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
-                        <div class="opiece" ng-show="vm.game.board[0] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+    				<div class="square" ng-click="vm.click(0,0)">
+                        <div class="xpiece" ng-show="vm.game.board[0][0] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[0][0] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
                     </div>
-    		 		<div class="square" ng-click="vm.click(1)">
-                        <div class="xpiece" ng-show="vm.game.board[1] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
-                        <div class="opiece" ng-show="vm.game.board[1] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+    		 		<div class="square" ng-click="vm.click(0,1)">
+                        <div class="xpiece" ng-show="vm.game.board[0][1] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[0][1] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
                     </div>
-    				<div class="square" ng-click="vm.click(2)">
-                        <div class="xpiece" ng-show="vm.game.board[2] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
-                        <div class="opiece" ng-show="vm.game.board[2] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
-                    </div>
-    			</div> 
-    			<div> 
-    				<div class="square" ng-click="vm.click(3)">
-                        <div class="xpiece" ng-show="vm.game.board[3] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
-                        <div class="opiece" ng-show="vm.game.board[3] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
-                    </div>
-    				<div class="square" ng-click="vm.click(4)">
-                        <div class="xpiece" ng-show="vm.game.board[4] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
-                        <div class="opiece" ng-show="vm.game.board[4] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
-                    </div>
-    				<div class="square" ng-click="vm.click(5)">
-                        <div class="xpiece" ng-show="vm.game.board[5] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
-                        <div class="opiece" ng-show="vm.game.board[5] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+    				<div class="square" ng-click="vm.click(0,2)">
+                        <div class="xpiece" ng-show="vm.game.board[0][2] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[0][2] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
                     </div>
     			</div> 
     			<div> 
-    				<div class="square" ng-click="vm.click(6)">
-                        <div class="xpiece" ng-show="vm.game.board[6] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
-                        <div class="opiece" ng-show="vm.game.board[6] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+    				<div class="square" ng-click="vm.click(1,0)">
+                        <div class="xpiece" ng-show="vm.game.board[1][0] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[1][0] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
                     </div>
-    				<div class="square" ng-click="vm.click(7)">
-                        <div class="xpiece" ng-show="vm.game.board[7] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
-                        <div class="opiece" ng-show="vm.game.board[7] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+    				<div class="square" ng-click="vm.click(1,1)">
+                        <div class="xpiece" ng-show="vm.game.board[1][1] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[1][1] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
                     </div>
-    				<div class="square" ng-click="vm.click(8)">
-                        <div class="xpiece" ng-show="vm.game.board[8] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
-                        <div class="opiece" ng-show="vm.game.board[8] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+    				<div class="square" ng-click="vm.click(1,2)">
+                        <div class="xpiece" ng-show="vm.game.board[1][2] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[1][2] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+                    </div>
+    			</div> 
+    			<div> 
+    				<div class="square" ng-click="vm.click(2,0)">
+                        <div class="xpiece" ng-show="vm.game.board[2][0] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[2][0] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+                    </div>
+    				<div class="square" ng-click="vm.click(2,1)">
+                        <div class="xpiece" ng-show="vm.game.board[2][1] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[2][1] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
+                    </div>
+    				<div class="square" ng-click="vm.click(2,2)">
+                        <div class="xpiece" ng-show="vm.game.board[2][2] === 'X'"><i class="fa fa-times fa-5x centerboth"></i></div>
+                        <div class="opiece" ng-show="vm.game.board[2][2] === 'O'"><i class="fa fa-circle-o fa-4x centerboth"></i></div>
                     </div>
     			</div>
     		</div>
@@ -67,8 +67,8 @@
             <div class="gameOverDisplay" ng-show="vm.game.winner !=''">
                 <div class="replayScreen" ng-show="vm.game.winner !=''">
                     <p>
-                        <span ng-show="vm.game.winner == 'X'">Congratulations Player 1 - You Won!</span>
-                        <span ng-show="vm.game.winner == 'O'">Congratulations Player 2 - You Won!</span>
+                        <span ng-show="vm.game.winner == 'X'">Player 1 Wins!</span>
+                        <span ng-show="vm.game.winner == 'O'">Player 2 Wins!</span>
                     </p>
                     <button ng-click="vm.newGame()" ng-hide="gameOverDisplay">Play Again</button>
                 </div>

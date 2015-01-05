@@ -122,7 +122,7 @@ button .newgame {
 .replayScreen {
     top: 150px;
     height:160px;
-    width:650px;
+    width:350px;
     margin:0 auto;
     position:relative; 
     z-index:10; 
