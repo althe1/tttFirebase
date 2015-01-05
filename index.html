@@ -15,7 +15,7 @@
     <div ng-controller="TController as vm">
         <div class="scoreboard">
             <h1>Tic Tac Toe<h1> 
-            <h2>You are player: {{ vm.player }}</h2>
+            <h2>Player: {{ vm.player }}</h2>
         </div>
     	<div class="gameboard">
     		
@@ -64,25 +64,20 @@
     			</div>
     		</div>
 
-            <p ng-show="vm.game.winner == 'X'">Player 1 wins!</p>
-            <p ng-show="vm.game.winner == 'O'">Player 2 wins!</p>
-            <p ng-show="vm.game.winner == 'tie'">It's a tie!</p>
-
-
-        <div ng-class="{gameOverDisplay: vm.winningName != '', hidden: vm.game.winner == false}">
-            <div ng-class="{replayScreen: vm.winningName != '', hidden: vm.game.winner == false}">
+        <div ng-class="gameOverDisplay" ng-show="vm.game.winner !=''">
+            <div ng-class="replayScreen" ng-show="vm.game.winner !=''">
                 <p>
                     <span ng-show="vm.game.winner == 'X'">Congratulations Player 1 - You Won!</span>
                     <span ng-show="vm.game.winner == 'O'">Congratulations Player 2 - You Won!</span>
                 </p>
-                <button ng-click="vm.newGame()" ng-hide="gameOverDisplay">Play Again</button>
+                <button ng-show="vm.game.winner !=''" ng-click="vm.newGame()" ng-hide="gameOverDisplay">Play Again</button>
             </div>
         </div>
 
-        <div class="gameOverDisplay" ng-show="vm.game.winner == 'tie'">
-            <div class="replayScreen" ng-show="vm.game.winner == 'tie'">
+        <div ng-class="gameOverDisplay" ng-show="vm.game.winner == 'tie'">
+            <div ng-class="replayScreen" ng-show="vm.game.winner == 'tie'">
                 <p ng-show="vm.game.winner == 'tie'">Cats Game - You Tie!</p>
-                <button ng-click="vm.newGame()" ng-hide="gameOverDisplay">Play Again!</button>
+                <button ng-show="vm.game.winner == 'tie'" ng-click="vm.newGame()" ng-hide="gameOverDisplay">Play Again!</button>
             </div>
         </div>
 

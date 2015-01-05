@@ -6,7 +6,6 @@ TController.$inject = ['$firebase'];
 
 function TController($firebase) {
 	vm = this;
-
 	function getFirebaseGame() {
 		var ref = new Firebase("https://freetictactoe.firebaseio.com/ttt");
 		var game = $firebase(ref).$asObject();
@@ -18,7 +17,9 @@ function TController($firebase) {
 
 	vm.player = '';
 
-	ttt.$loaded().then(function() {
+	ttt.$loaded().then(playerSwitch);
+
+	function playerSwitch(){
 		if(ttt.needPlayerTwo) {
 			vm.player = 2;
 			ttt.needPlayerTwo = false;
@@ -31,8 +32,8 @@ function TController($firebase) {
 			ttt.winner = false;			
 		}
 		ttt.$save();
-	});
-
+	};
+ 	
 	vm.click = function(i) {
 		if(ttt.winner) {
 			return;
